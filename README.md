@@ -1,4 +1,4 @@
-# Android-breakpoint-download-demo
+# Android_MVP_Beginner
 This demo shows a breakpoint download and update UI using broadcast
 ListView has refreshing and laoding more funciton.
 
