@@ -1,4 +1,4 @@
-package now_weather;
+package now_weather.contract;
 
 import java.util.List;
 

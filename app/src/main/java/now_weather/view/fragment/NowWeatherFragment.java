@@ -1,4 +1,4 @@
-package now_weather;
+package now_weather.view.fragment;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -18,6 +18,10 @@ import com.orhanobut.logger.Logger;
 import java.util.List;
 
 import allen.android_mvp_beginner.R;
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import now_weather.contract.NowWeatherContract;
+import now_weather.view.adapter.NowWeatherAdapter;
 import utils.MyItemDecaration;
 
 
@@ -29,10 +33,15 @@ public class NowWeatherFragment extends Fragment implements NowWeatherContract.V
 
     private NowWeatherContract.Presenter mPresenter;
 
-    private RecyclerView mRecyclerView;
-    private TextView mTvEmpty;
+    @BindView(R.id.view_recyclerview)
+     RecyclerView mRecyclerView;
 
-    private SwipeRefreshLayout mLayoutRefresh;
+    @BindView(R.id.tv_no_data)
+     TextView mTvEmpty;
+
+    @BindView(R.id.layout_refresh)
+     SwipeRefreshLayout mLayoutRefresh;
+
     private NowWeatherAdapter<Integer> mAdapter;
 
     public static NowWeatherFragment newInstance() {
@@ -48,16 +57,15 @@ public class NowWeatherFragment extends Fragment implements NowWeatherContract.V
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mAdapter = new NowWeatherAdapter(getActivity());
+        mAdapter = new NowWeatherAdapter<>(getActivity());
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_nowweather, container, false);
-        mRecyclerView = (RecyclerView) view.findViewById(R.id.view_recyclerview);
-        mLayoutRefresh = (SwipeRefreshLayout) view.findViewById(R.id.layout_refresh);
-        mTvEmpty = (TextView) view.findViewById(R.id.tv_no_data);
+        ButterKnife.bind(this, view);
+
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         mRecyclerView.addItemDecoration(new MyItemDecaration(getActivity()));
         mRecyclerView.setAdapter(mAdapter);

@@ -1,4 +1,4 @@
-package now_weather;
+package now_weather.view.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -24,7 +24,7 @@ public class NowWeatherAdapter<T> extends RecyclerView.Adapter {
     private Context mContext;
 
 
-    NowWeatherAdapter(Context context) {
+    public NowWeatherAdapter(Context context) {
         this.mContext = context;
     }
 

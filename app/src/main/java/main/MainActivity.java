@@ -4,8 +4,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.FrameLayout;
 
-import now_weather.NowWeatherFragment;
-import now_weather.NowWeatherPresenter;
+import now_weather.view.fragment.NowWeatherFragment;
+import now_weather.presenter.NowWeatherPresenter;
 import utils.ActivityUtils;
 import allen.android_mvp_beginner.R;
 import butterknife.BindView;

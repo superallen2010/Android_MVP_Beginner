@@ -1,6 +1,6 @@
 package future_weather;
 
-import now_weather.NowWeatherContract;
+import now_weather.contract.NowWeatherContract;
 
 
 /**
